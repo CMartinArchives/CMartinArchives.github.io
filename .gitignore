@@ -85,3 +85,8 @@ run_api.sh
 run_frontend.sh
 run_main.sh
 .vscode
+
+# Repositories to ignore
+Portfolio-TNAH/
+github-page-template/
+
