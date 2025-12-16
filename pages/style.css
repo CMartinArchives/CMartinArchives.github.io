@@ -1,3 +1,14 @@
+body::before {
+  content: "";   /* Crée un pseudo-élément invisible avant le contenu du body */
+  position: fixed;   /* Fixe le fond à l’écran : il ne bouge pas quand on scrolle */
+  inset: 0;   /* Étend le pseudo-élément sur toute la fenêtre (top, right, bottom, left = 0) */
+  background: url("img/trippy.gif") center / cover no-repeat;   /* Utilise le GIF comme fond, centré, étiré pour couvrir l’écran, sans répétition */
+  opacity: 0.15;   /* Rend le GIF très discret pour qu’il reste une ambiance */
+  filter: blur(2px);   /* Floute légèrement le GIF pour adoucir le rendu et améliorer la lisibilité */
+  z-index: -1;   /* Place le fond derrière tout le contenu de la page */
+  pointer-events: none;   /* Empêche le fond de bloquer les clics sur le contenu */
+}
+
 .recommendation-category {
     margin: 2.5rem 0;
 }
