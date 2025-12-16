@@ -107,7 +107,7 @@ body::after {
 }
 
 /* =======================
-   TIMECODE — PAR DÉFAUT (ORDI)
+   TIMECODE — DESKTOP (défaut)
    ======================= */
 
 .timecode {
@@ -198,10 +198,7 @@ h1 {
   transform: translateX(-50%) translateY(-4px);
 }
 
-/* =======================
-   NAV
-   ======================= */
-
+/* NAV */
 .nav {
   margin-top: 14px;
 }
@@ -242,19 +239,21 @@ h1 {
 }
 
 /* =======================
-   📱 MOBILE — TIMECODE EN HAUT
+   📱 MOBILE — TIME CODE EN HAUT
+   On cible (max-width) + (hover: none) pour être sûr sur tel
    ======================= */
 
-@media (max-width: 768px) {
-
+@media (max-width: 900px), (hover: none) and (pointer: coarse) {
   .timecode {
-    top: 22px;        /* ⬅️ en haut */
-    bottom: auto;     /* on annule le bas */
+    top: 22px;
     left: 50%;
+    bottom: auto;
+
     transform: translateX(-50%);
     font-size: 0.75rem;
-    opacity: 0.7;
+    opacity: 0.75;
     text-align: center;
+    width: calc(100% - 40px);
   }
 
   .media img {
