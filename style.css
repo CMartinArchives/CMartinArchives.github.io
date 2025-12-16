@@ -26,27 +26,33 @@ body {
   isolation: isolate;
 }
 
-/* CADRE — DESKTOP */
-.container::before {
-  content: "";
-  position: absolute;
-  inset: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  pointer-events: none;
-  z-index: 5;
-}
+/* =======================
+   CADRE — ORDI UNIQUEMENT
+   ======================= */
 
-/* FILET VERTICAL (DESKTOP) */
-.container::after {
-  content: "";
-  position: absolute;
-  top: 80px;
-  bottom: 80px;
-  left: 34px;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.12);
-  pointer-events: none;
-  z-index: 5;
+@media (min-width: 769px) {
+  /* CADRE */
+  .container::before {
+    content: "";
+    position: absolute;
+    inset: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* FILET VERTICAL GAUCHE */
+  .container::after {
+    content: "";
+    position: absolute;
+    top: 80px;
+    bottom: 80px;
+    left: 34px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+    z-index: 5;
+  }
 }
 
 /* =======================
@@ -237,21 +243,12 @@ h1 {
 }
 
 /* =======================
-   📱 MOBILE — CORRECTION DU CADRE
+   MOBILE
    ======================= */
 
 @media (max-width: 768px) {
-
-  /* cadre plus large et plus stable */
-  .container::before {
-    inset: 24px; /* ⬅️ clé */
-    border-color: rgba(255,255,255,0.18);
-  }
-
-  /* on enlève le filet vertical sur mobile */
-  .container::after {
-    display: none;
-  }
+  /* on coupe le timecode aussi si tu veux : décommente la ligne suivante */
+  /* .timecode { display: none; } */
 
   .timecode {
     font-size: 0.7rem;
