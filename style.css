@@ -172,18 +172,18 @@ body::after {
 
 h1 {
   font-size: 3.6rem;
-  font-weight: 400;
-  letter-spacing: -0.06em;      /* ⬅️ lettres encore un peu plus serrées */
+  font-weight: 300;          /* ⬅️ clé */
+  letter-spacing: -0.05em;
   opacity: 0.72;
   margin: 0;
 
-  /* anti-gras mobile */
+  /* rendu fin et stable partout */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* halo encore plus léger */
   text-shadow: 0 0 6px rgba(0,0,0,0.18);
 }
+
 /* LÉGENDE */
 .caption {
   position: absolute;
@@ -271,9 +271,10 @@ h1 {
   }
 
   h1 {
-    font-size: 2.4rem;
-    letter-spacing: -0.03em;
-  }
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
 
   .caption {
     font-size: 0.8rem;
