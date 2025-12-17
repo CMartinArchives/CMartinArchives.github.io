@@ -237,34 +237,24 @@ h1 {
   place-items: center;
   padding: 72px 56px;
   box-sizing: border-box;
-}
 
-.panel {
-  width: min(920px, 92vw);
-  max-height: calc(100vh - 160px);
-
+  /* scroll possible mais invisible */
   overflow-y: auto;
-  overflow-x: hidden;
-
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(0,0,0,0.35);
-  padding: 28px 28px 22px;
-  box-sizing: border-box;
-
-  /* scrollbar invisible */
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
-.panel::-webkit-scrollbar {
-  display: none; /* Chrome / Safari */
-}
+.page::-webkit-scrollbar { display: none; }
 
-.kicker {
-  font-size: 1.1rem;
-  letter-spacing: 0.26em;
-  opacity: 0.55;
-  margin: 0 0 10px 0;
-  font-variant: small-caps;
+/* Titre hors cadre : aligné à gauche, colonne centrée */
+.page-title.outside{
+  width: min(920px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding-left: clamp(10px, 2.2vw, 22px);
+
+  margin-top: 0;
+  margin-bottom: 4px; /* Projets + ligne très proches */
 }
 
 .page-title {
@@ -272,7 +262,69 @@ h1 {
   font-weight: 300;
   letter-spacing: -0.04em;
   opacity: 0.85;
-  margin: 0 0 14px 0;
+}
+
+/* Ligne explicative sous "Projets" (hors cadre) + micro-filet fantôme */
+.page-intro{
+  width: min(920px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0; /* collée au titre */
+  padding-left: clamp(10px, 2.2vw, 22px);
+
+  font-size: 1.15rem;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
+  text-align: left;
+
+  position: relative;
+}
+
+/* micro-filet horizontal fantôme */
+.page-intro::after{
+  content: "";
+  display: block;
+  width: min(220px, 42vw);
+  height: 1px;
+  margin-top: 12px;
+  opacity: 0.35;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0)
+  );
+}
+
+/* Wrapper projets : distance avant le premier cadre */
+.projects {
+  width: min(920px, 92vw);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 28px; /* espace entre intro+filet et Wikipedia */
+}
+
+/* Cadre projet (réutilise panel) */
+.panel {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.35);
+  padding: 28px 28px 22px;
+  box-sizing: border-box;
+}
+
+/* Titre dans le cadre */
+.project-title {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  opacity: 0.75;
+  margin: 0 0 18px 0;
+  font-variant: small-caps;
+  text-align: center;
 }
 
 .prose {
@@ -291,8 +343,15 @@ h1 {
 
 .prose a:hover { border-bottom-color: rgba(255,255,255,0.75); }
 
+/* Footer hors cadre */
+.page-footer {
+  margin-top: 26px;
+  width: min(920px, 92vw);
+  text-align: center;
+}
+
 .subnav {
-  margin-top: 18px;
+  margin-top: 0;
   display: flex;
   gap: 18px;
   justify-content: center;
@@ -325,19 +384,12 @@ h1 {
 
 .subnav a:hover::after { width: 70%; }
 
-.note {
-  margin-top: 14px;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  opacity: 0.55;
-}
-
 /* =======================
-   PORTRAITS (Ressources)
+   PORTRAITS (Ressources/Projets)
    ======================= */
 
 .portraits-row {
-  margin: 10px 0 6px 0;
+  margin: 2px 0; /* resserré entre rangées */
   display: flex;
   justify-content: center;
   gap: 18px;
@@ -352,15 +404,7 @@ h1 {
   transition: transform 0.55s ease, opacity 0.55s ease;
 }
 
-.portrait-svg:hover {
-  transform: scale(1.035);
-  opacity: 1;
-}
-
-/* =======================
-   PORTRAITS : hover nom + fonction
-   ======================= */
-
+/* Réserve pour 2 lignes (labels restent dans le cadre) */
 .portrait-link {
   position: relative;
   text-decoration: none;
@@ -368,40 +412,48 @@ h1 {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 44px; /* resserré */
 }
 
 .portrait-label,
 .portrait-role {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%) translateY(-4px);
+  transform: translateX(-50%);
   text-align: center;
   white-space: nowrap;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .portrait-label {
-  bottom: -24px;
+  bottom: 22px;
   font-size: 0.95rem;
   letter-spacing: 0.18em;
   font-variant: small-caps;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .portrait-role {
-  bottom: -46px;
+  bottom: 4px;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   font-style: italic;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-transform: lowercase;
 }
 
-.portrait-link:hover .portrait-label,
-.portrait-link:hover .portrait-role {
-  opacity: 0.75;
-  transform: translateX(-50%) translateY(0);
+/* Hover uniquement sur desktop */
+@media (hover: hover) and (pointer: fine) {
+  .portrait-svg:hover {
+    transform: scale(1.035);
+    opacity: 1;
+  }
+
+  .portrait-link:hover .portrait-label,
+  .portrait-link:hover .portrait-role {
+    opacity: 0.75;
+    transform: translateX(-50%) translateY(2px);
+  }
 }
 
 /* =======================
@@ -430,11 +482,12 @@ h1 {
 
   .page { padding: 86px 18px 24px; }
 
+  .projects { width: 100%; margin-top: 22px; }
+
   .panel {
     border: none;
     background: transparent;
     padding: 0;
-    max-height: calc(100vh - 130px);
   }
 
   .page-title { font-size: 2.6rem; }
@@ -445,5 +498,34 @@ h1 {
   .portrait-svg {
     width: 160px;
     height: 160px;
+  }
+
+  .portrait-link { padding-bottom: 0; }
+
+  .portrait-label,
+  .portrait-role {
+    position: static;
+    transform: none;
+    opacity: 0.78;
+    pointer-events: auto;
+    margin-top: 6px;
+  }
+
+  .portrait-role { margin-top: 2px; }
+
+  .page-footer { width: 100%; }
+
+  .page-title.outside,
+  .page-intro{
+    padding-left: 0;
+  }
+
+  .page-intro{
+    font-size: 1.05rem;
+  }
+
+  .page-intro::after{
+    width: min(240px, 70vw);
+    margin-top: 10px;
   }
 }
