@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
 
   <!-- cache-buster -->
-  <link rel="stylesheet" href="../style.css?v=19" />
+  <link rel="stylesheet" href="../style.css?v=23" />
 </head>
 
 <body>
@@ -23,91 +23,32 @@
         <p class="kicker">Sélection</p>
         <h1 class="page-title">Ressources</h1>
 
+        <!-- TEXTE DE CONTEXTE -->
+        <div class="prose" style="margin-top: 10px;">
+          <p>
+            Je participe au projet
+            <a href="https://fr.wikipedia.org/wiki/Projet:Les_sans_pagEs"
+               target="_blank" rel="noopener noreferrer">Les sans pagEs</a>
+            de Wikipédia, qui vise à réduire les biais de genre en donnant une visibilité
+            encyclopédique aux femmes et aux personnes minorisées.
+          </p>
+          <p>
+            Les portraits ci-dessous renvoient vers des articles que j’ai rédigés ou enrichis
+            dans ce cadre.
+          </p>
+        </div>
+
         <!-- =======================
              PORTRAITS CLIQUABLES
         ======================== -->
-        <div class="portraits-row">
+        <div class="portraits-row" aria-label="Portraits">
 
-          <!-- 1 — Marie Degrandi -->
-          <a
-            class="portrait-link"
-            href="https://fr.wikipedia.org/wiki/Marie_Degrandi"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Marie Degrandi"
-          >
-            <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
-              <defs>
-                <clipPath id="mask-marie">
-                  <circle cx="150" cy="150" r="140"></circle>
-                </clipPath>
-                <filter id="boost-marie">
-                  <feColorMatrix type="matrix" values="
-                    1.12 0 0 0 -0.04
-                    0 1.12 0 0 -0.04
-                    0 0 1.12 0 -0.04
-                    0 0 0 1 0
-                  "/>
-                </filter>
-              </defs>
+          <!-- 1 — Elvire Choureau -->
+          <a class="portrait-link"
+             href="https://fr.wikipedia.org/wiki/Elvire_Choureau"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Elvire Choureau, libraire-éditrice">
 
-              <image
-                href="../img/MarieDegrandi.jpg"
-                width="360" height="360"
-                x="-30" y="-10"
-                clip-path="url(#mask-marie)"
-                filter="url(#boost-marie)"
-                preserveAspectRatio="xMidYMid slice"
-              />
-            </svg>
-
-            <span class="portrait-label">Marie Degrandi</span>
-          </a>
-
-          <!-- 2 — Marcelle Lesage -->
-          <a
-            class="portrait-link"
-            href="https://fr.wikipedia.org/wiki/Marcelle_Lesage"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Marcelle Lesage"
-          >
-            <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
-              <defs>
-                <clipPath id="mask-marcelle">
-                  <circle cx="150" cy="150" r="140"></circle>
-                </clipPath>
-                <filter id="boost-marcelle">
-                  <feColorMatrix type="matrix" values="
-                    1.25 0 0 0 -0.10
-                    0 1.25 0 0 -0.10
-                    0 0 1.25 0 -0.10
-                    0 0 0 1 0
-                  "/>
-                </filter>
-              </defs>
-
-              <image
-                href="../img/MarcelleLesage.jpg"
-                width="330" height="330"
-                x="-15" y="10"
-                clip-path="url(#mask-marcelle)"
-                filter="url(#boost-marcelle)"
-                preserveAspectRatio="xMidYMid slice"
-              />
-            </svg>
-
-            <span class="portrait-label">Marcelle Lesage</span>
-          </a>
-
-          <!-- 3 — Elvire Choureau -->
-          <a
-            class="portrait-link"
-            href="https://fr.wikipedia.org/wiki/Elvire_Choureau"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Elvire Choureau"
-          >
             <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
               <defs>
                 <clipPath id="mask-elvire">
@@ -134,16 +75,55 @@
             </svg>
 
             <span class="portrait-label">Elvire Choureau</span>
+            <span class="portrait-role">libraire-éditrice</span>
           </a>
 
-          <!-- 4 — Colette Peignot -->
-          <a
-            class="portrait-link"
-            href="https://fr.wikipedia.org/wiki/Colette_Peignot"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Colette Peignot"
-          >
+          <!-- 2 — Marcelle Lesage -->
+          <a class="portrait-link"
+             href="https://fr.wikipedia.org/wiki/Marcelle_Lesage"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Marcelle Lesage, libraire-éditrice">
+
+            <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
+              <defs>
+                <clipPath id="mask-marcelle">
+                  <circle cx="150" cy="150" r="140"></circle>
+                </clipPath>
+                <filter id="boost-marcelle">
+                  <feComponentTransfer>
+                    <feFuncR type="gamma" amplitude="1" exponent="0.9" offset="-0.01"/>
+                    <feFuncG type="gamma" amplitude="1" exponent="0.9" offset="-0.01"/>
+                    <feFuncB type="gamma" amplitude="1" exponent="0.9" offset="-0.01"/>
+                  </feComponentTransfer>
+                  <feColorMatrix type="matrix" values="
+                    1.25 0 0 0 -0.10
+                    0 1.25 0 0 -0.10
+                    0 0 1.25 0 -0.10
+                    0 0 0 1 0
+                  "/>
+                </filter>
+              </defs>
+
+              <image
+                href="../img/MarcelleLesage.jpg"
+                width="330" height="330"
+                x="-15" y="10"
+                clip-path="url(#mask-marcelle)"
+                filter="url(#boost-marcelle)"
+                preserveAspectRatio="xMidYMid slice"
+              />
+            </svg>
+
+            <span class="portrait-label">Marcelle Lesage</span>
+            <span class="portrait-role">libraire-éditrice</span>
+          </a>
+
+          <!-- 3 — Colette Peignot -->
+          <a class="portrait-link"
+             href="https://fr.wikipedia.org/wiki/Colette_Peignot"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Colette Peignot, femme de lettres">
+
             <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
               <defs>
                 <clipPath id="mask-colette">
@@ -170,13 +150,49 @@
             </svg>
 
             <span class="portrait-label">Colette Peignot</span>
+            <span class="portrait-role">femme de lettres</span>
+          </a>
+
+          <!-- 4 — Marie Degrandi -->
+          <a class="portrait-link"
+             href="https://fr.wikipedia.org/wiki/Marie_Degrandi"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Marie Degrandi, chanteuse lyrique">
+
+            <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
+              <defs>
+                <clipPath id="mask-marie">
+                  <circle cx="150" cy="150" r="140"></circle>
+                </clipPath>
+                <filter id="boost-marie">
+                  <feColorMatrix type="matrix" values="
+                    1.12 0 0 0 -0.04
+                    0 1.12 0 0 -0.04
+                    0 0 1.12 0 -0.04
+                    0 0 0 1 0
+                  "/>
+                </filter>
+              </defs>
+
+              <image
+                href="../img/MarieDegrandi.jpg"
+                width="360" height="360"
+                x="-30" y="-10"
+                clip-path="url(#mask-marie)"
+                filter="url(#boost-marie)"
+                preserveAspectRatio="xMidYMid slice"
+              />
+            </svg>
+
+            <span class="portrait-label">Marie Degrandi</span>
+            <span class="portrait-role">chanteuse lyrique</span>
           </a>
 
         </div>
         <!-- ======================= -->
         <br>
         <br>
-        <nav class="subnav">
+        <nav class="subnav" aria-label="Navigation">
           <a href="../index.html">Accueil</a>
           <a href="./about.html">À propos</a>
           <a href="./contact.html">Contact</a>
