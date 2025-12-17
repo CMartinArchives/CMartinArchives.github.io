@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
 
   <!-- cache-buster -->
-  <link rel="stylesheet" href="../style.css?v=23" />
+  <link rel="stylesheet" href="../style.css?v=29" />
 </head>
 
 <body>
@@ -39,160 +39,99 @@
         </div>
 
         <!-- =======================
-             PORTRAITS CLIQUABLES
+             PORTRAITS — 1ère RANGÉE
         ======================== -->
-        <div class="portraits-row" aria-label="Portraits">
+        <div class="portraits-row">
 
-          <!-- 1 — Elvire Choureau -->
-          <a class="portrait-link"
-             href="https://fr.wikipedia.org/wiki/Elvire_Choureau"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Elvire Choureau, libraire-éditrice">
-
-            <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
-              <defs>
-                <clipPath id="mask-elvire">
-                  <circle cx="150" cy="150" r="140"></circle>
-                </clipPath>
-                <filter id="boost-elvire">
-                  <feColorMatrix type="matrix" values="
-                    1.18 0 0 0 -0.06
-                    0 1.18 0 0 -0.06
-                    0 0 1.18 0 -0.06
-                    0 0 0 1 0
-                  "/>
-                </filter>
-              </defs>
-
-              <image
-                href="../img/ElvireChoureau.png"
-                width="350" height="350"
-                x="-25" y="5"
-                clip-path="url(#mask-elvire)"
-                filter="url(#boost-elvire)"
-                preserveAspectRatio="xMidYMid slice"
-              />
+          <!-- Elvire Choureau -->
+          <a class="portrait-link" href="https://fr.wikipedia.org/wiki/Elvire_Choureau" target="_blank">
+            <svg class="portrait-svg" viewBox="0 0 300 300">
+              <defs><clipPath id="mask-elvire"><circle cx="150" cy="150" r="140"/></clipPath></defs>
+              <image href="../img/ElvireChoureau.png" width="350" height="350" x="-25" y="5"
+                     clip-path="url(#mask-elvire)" preserveAspectRatio="xMidYMid slice"/>
             </svg>
-
             <span class="portrait-label">Elvire Choureau</span>
             <span class="portrait-role">libraire-éditrice</span>
           </a>
 
-          <!-- 2 — Marcelle Lesage -->
-          <a class="portrait-link"
-             href="https://fr.wikipedia.org/wiki/Marcelle_Lesage"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Marcelle Lesage, libraire-éditrice">
-
-            <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
-              <defs>
-                <clipPath id="mask-marcelle">
-                  <circle cx="150" cy="150" r="140"></circle>
-                </clipPath>
-                <filter id="boost-marcelle">
-                  <feComponentTransfer>
-                    <feFuncR type="gamma" amplitude="1" exponent="0.9" offset="-0.01"/>
-                    <feFuncG type="gamma" amplitude="1" exponent="0.9" offset="-0.01"/>
-                    <feFuncB type="gamma" amplitude="1" exponent="0.9" offset="-0.01"/>
-                  </feComponentTransfer>
-                  <feColorMatrix type="matrix" values="
-                    1.25 0 0 0 -0.10
-                    0 1.25 0 0 -0.10
-                    0 0 1.25 0 -0.10
-                    0 0 0 1 0
-                  "/>
-                </filter>
-              </defs>
-
-              <image
-                href="../img/MarcelleLesage.jpg"
-                width="330" height="330"
-                x="-15" y="10"
-                clip-path="url(#mask-marcelle)"
-                filter="url(#boost-marcelle)"
-                preserveAspectRatio="xMidYMid slice"
-              />
+          <!-- Marcelle Lesage -->
+          <a class="portrait-link" href="https://fr.wikipedia.org/wiki/Marcelle_Lesage" target="_blank">
+            <svg class="portrait-svg" viewBox="0 0 300 300">
+              <defs><clipPath id="mask-marcelle"><circle cx="150" cy="150" r="140"/></clipPath></defs>
+              <image href="../img/MarcelleLesage.jpg" width="330" height="330" x="-15" y="10"
+                     clip-path="url(#mask-marcelle)" preserveAspectRatio="xMidYMid slice"/>
             </svg>
-
             <span class="portrait-label">Marcelle Lesage</span>
             <span class="portrait-role">libraire-éditrice</span>
           </a>
 
-          <!-- 3 — Colette Peignot -->
-          <a class="portrait-link"
-             href="https://fr.wikipedia.org/wiki/Colette_Peignot"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Colette Peignot, femme de lettres">
-
-            <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
-              <defs>
-                <clipPath id="mask-colette">
-                  <circle cx="150" cy="150" r="140"></circle>
-                </clipPath>
-                <filter id="boost-colette">
-                  <feColorMatrix type="matrix" values="
-                    1.20 0 0 0 -0.08
-                    0 1.20 0 0 -0.08
-                    0 0 1.20 0 -0.08
-                    0 0 0 1 0
-                  "/>
-                </filter>
-              </defs>
-
-              <image
-                href="../img/ColettePeignot.jpg"
-                width="360" height="360"
-                x="-30" y="-5"
-                clip-path="url(#mask-colette)"
-                filter="url(#boost-colette)"
-                preserveAspectRatio="xMidYMid slice"
-              />
+          <!-- Colette Peignot -->
+          <a class="portrait-link" href="https://fr.wikipedia.org/wiki/Colette_Peignot" target="_blank">
+            <svg class="portrait-svg" viewBox="0 0 300 300">
+              <defs><clipPath id="mask-colette"><circle cx="150" cy="150" r="140"/></clipPath></defs>
+              <image href="../img/ColettePeignot.jpg" width="360" height="360" x="-30" y="-5"
+                     clip-path="url(#mask-colette)" preserveAspectRatio="xMidYMid slice"/>
             </svg>
-
             <span class="portrait-label">Colette Peignot</span>
             <span class="portrait-role">femme de lettres</span>
           </a>
 
-          <!-- 4 — Marie Degrandi -->
-          <a class="portrait-link"
-             href="https://fr.wikipedia.org/wiki/Marie_Degrandi"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Marie Degrandi, chanteuse lyrique">
-
-            <svg class="portrait-svg" viewBox="0 0 300 300" role="img">
-              <defs>
-                <clipPath id="mask-marie">
-                  <circle cx="150" cy="150" r="140"></circle>
-                </clipPath>
-                <filter id="boost-marie">
-                  <feColorMatrix type="matrix" values="
-                    1.12 0 0 0 -0.04
-                    0 1.12 0 0 -0.04
-                    0 0 1.12 0 -0.04
-                    0 0 0 1 0
-                  "/>
-                </filter>
-              </defs>
-
-              <image
-                href="../img/MarieDegrandi.jpg"
-                width="360" height="360"
-                x="-30" y="-10"
-                clip-path="url(#mask-marie)"
-                filter="url(#boost-marie)"
-                preserveAspectRatio="xMidYMid slice"
-              />
+          <!-- Marie Degrandi -->
+          <a class="portrait-link" href="https://fr.wikipedia.org/wiki/Marie_Degrandi" target="_blank">
+            <svg class="portrait-svg" viewBox="0 0 300 300">
+              <defs><clipPath id="mask-marie"><circle cx="150" cy="150" r="140"/></clipPath></defs>
+              <image href="../img/MarieDegrandi.jpg" width="360" height="360" x="-30" y="-10"
+                     clip-path="url(#mask-marie)" preserveAspectRatio="xMidYMid slice"/>
             </svg>
-
             <span class="portrait-label">Marie Degrandi</span>
             <span class="portrait-role">chanteuse lyrique</span>
           </a>
 
         </div>
-        <!-- ======================= -->
-        <br>
-        <br>
-        <nav class="subnav" aria-label="Navigation">
+
+        <!-- =======================
+             PORTRAITS — 2e RANGÉE
+        ======================== -->
+        <div class="portraits-row" style="margin-top:36px;">
+
+          <!-- Mary Eccles -->
+          <a class="portrait-link" href="https://fr.wikipedia.org/wiki/Mary_Eccles" target="_blank">
+            <svg class="portrait-svg" viewBox="0 0 300 300">
+              <defs><clipPath id="mask-mary"><circle cx="150" cy="150" r="140"/></clipPath></defs>
+              <image href="../img/MaryEccles.png" width="340" height="340" x="-20" y="0"
+                     clip-path="url(#mask-mary)" preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <span class="portrait-label">Mary Eccles</span>
+            <span class="portrait-role">collectionneuse</span>
+          </a>
+
+          <!-- Suzy Platiel -->
+          <a class="portrait-link" href="https://fr.wikipedia.org/wiki/Suzy_Platiel" target="_blank">
+            <svg class="portrait-svg" viewBox="0 0 300 300">
+              <defs><clipPath id="mask-suzy"><circle cx="150" cy="150" r="140"/></clipPath></defs>
+              <image href="../img/SuzyPlatiel.png" width="420" height="420" x="-60" y="-30"
+                     clip-path="url(#mask-suzy)" preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <span class="portrait-label">Suzy Platiel</span>
+            <span class="portrait-role">ethnolinguiste</span>
+          </a>
+
+          <!-- Sophie Bascans -->
+          <a class="portrait-link" href="https://fr.wikipedia.org/wiki/Sophie_Bascans" target="_blank">
+            <svg class="portrait-svg" viewBox="0 0 300 300">
+              <defs><clipPath id="mask-sophie"><circle cx="150" cy="150" r="140"/></clipPath></defs>
+              <image href="../img/SophieBascans.png" width="420" height="420" x="-60" y="-40"
+                     clip-path="url(#mask-sophie)" preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <span class="portrait-label">Sophie Bascans</span>
+            <span class="portrait-role">directrice de pensionnat</span>
+          </a>
+
+        </div>
+
+        <br><br>
+
+        <nav class="subnav">
           <a href="../index.html">Accueil</a>
           <a href="./about.html">À propos</a>
           <a href="./contact.html">Contact</a>

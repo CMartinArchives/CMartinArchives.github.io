@@ -242,11 +242,21 @@ h1 {
 .panel {
   width: min(920px, 92vw);
   max-height: calc(100vh - 160px);
-  overflow: auto;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(0,0,0,0.35);
   padding: 28px 28px 22px;
   box-sizing: border-box;
+
+  /* scrollbar invisible */
+  scrollbar-width: none; /* Firefox */
+}
+
+.panel::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
 }
 
 .kicker {
