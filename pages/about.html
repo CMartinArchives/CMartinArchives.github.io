@@ -1,77 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recommandations - Clara Martin</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💫</text></svg>">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos — Clara Martin</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+
+  <!-- cache-buster -->
+  <link rel="stylesheet" href="../style.css?v=32" />
 </head>
+
 <body>
-    <nav>
-        <div class="nav-content">
-            <h1>Clara Martin</h1>
-            <ul>
-                <li><a href="../index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-            </ul>
-        </div>
-    </nav>
+  <div class="container">
 
-    <main>
-        <section class="page-header">
-            <h2>Mes recommandations</h2>
-            <p>Ressources et outils que j'utilise et recommande</p>
+    <div class="timecode">PARIS — 2025 · PLAN 02</div>
+
+    <main class="page">
+      <!-- Titre HORS CADRE -->
+      <h1 class="page-title outside">À propos</h1>
+
+      <p class="page-intro">
+        Archivistique numérique, culture visuelle et goût pour les interfaces sobres.
+      </p>
+
+      <div class="projects">
+
+        <!-- TEXTE À PROPOS -->
+        <section class="panel" aria-label="Présentation">
+          <div class="prose">
+            <p>
+              Je m’appelle Clara Martin. Je me forme aux métiers des archives et du numérique
+              à l’École nationale des chartes – PSL, au sein du master
+              <em>Archives – Technologies numériques appliquées à l’histoire</em>.
+            </p>
+
+            <p>
+              Je m’intéresse à l’articulation entre archivistique, structuration des données
+              et développement web&nbsp;: description, organisation, accès et valorisation.
+              XML, bases de données, humanités numériques et outils de diffusion patrimoniale
+              font partie de mes principaux axes de travail.
+            </p>
+
+            <p>
+              À partir d’avril, j’effectue un stage à Montpellier dans le cadre d’un projet numérique.
+            </p>
+
+            <p>
+              Ce site est à la fois une vitrine personnelle et un espace d’expérimentation.
+              J’y rassemble mes projets, mes ressources, et une approche du web
+              minimaliste et éditoriale, inspirée du cinéma et de la Nouvelle Vague.
+            </p>
+          </div>
         </section>
 
-        <section class="about">
-            <div class="about-category">
-                <h3>🎓 Apprentissage</h3>
-                <ul class="about-list">
-                    <li>
-                        <a href="https://example.com" target="_blank">
-                            <strong>Nom de la ressource</strong>
-                        </a>
-                        <p>Description de pourquoi cette ressource est utile</p>
-                    </li>
-                    <li>
-                        <a href="https://example.com" target="_blank">
-                            <strong>Autre ressource</strong>
-                        </a>
-                        <p>Description de cette ressource</p>
-                    </li>
-                </ul>
-            </div>
+        <!-- CV REPLIABLE (Markdown) -->
+        <section class="panel" aria-label="Curriculum vitae">
+          <details class="cv-toggle">
+            <summary>Curriculum vitae</summary>
 
-            <div class="about-category">
-                <h3>🛠️ Outils</h3>
-                <ul class="about-list">
-                    <li>
-                        <a href="https://example.com" target="_blank">
-                            <strong>Outil préféré</strong>
-                        </a>
-                        <p>Pourquoi j'utilise cet outil</p>
-                    </li>
-                </ul>
+            <div class="prose" style="margin-top:18px;">
+              <p>
+                Mon CV est disponible au format Markdown.
+              </p>
+              <p>
+                <a href="./cv.html">
+                  Ouvrir le CV — Clara Martin
+                </a>
+              </p>
+              <p style="opacity:0.65; margin-top:10px;">
+                (page dédiée, format lisible pour le web)
+              </p>
             </div>
-
-            <div class="about-category">
-                <h3>🎨 Passions</h3>
-                <ul class="about-list">
-                    <li>
-                        <strong>Ma passion</strong>
-                        <p>Description de ce que j'aime faire</p>
-                    </li>
-                </ul>
-            </div>
+          </details>
         </section>
+
+      </div>
+
+      <!-- FOOTER HORS CADRE -->
+      <div class="page-footer">
+        <nav class="subnav" aria-label="Navigation">
+          <a href="../index.html">Accueil</a>
+          <a href="./resources.html">Ressources</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+      </div>
+
     </main>
 
-    <footer>
-        <p>© 2025 Clara Martin</p>
-    </footer>
-
-    <script src="../script.js"></script>
+  </div>
 </body>
 </html>

@@ -13,6 +13,11 @@ body {
   color: #fff;
   font-family: "Cormorant Garamond", serif;
   text-rendering: optimizeLegibility;
+
+  /* évite le rendu "gras" et stabilise */
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* =======================
@@ -164,7 +169,8 @@ body::after {
   margin: 0 0 6px 0;
 }
 
-h1 {
+/* ⚠️ Important : éviter de styliser TOUS les h1 du site pareil */
+.hero h1 {
   font-size: 3.6rem;
   font-weight: 300;
   letter-spacing: -0.05em;
@@ -233,81 +239,72 @@ h1 {
   position: absolute;
   inset: 0;
   z-index: 10;
-  display: grid;
-  place-items: center;
+
+  /* ✅ correction: centrer horizontalement sans "centrer" tout le contenu */
+  display: block;
   padding: 72px 56px;
   box-sizing: border-box;
 
-  /* scroll possible mais invisible */
   overflow-y: auto;
   scrollbar-width: none;
 }
 
 .page::-webkit-scrollbar { display: none; }
 
-/* Titre hors cadre : aligné à gauche, colonne centrée */
+/* Kicker + titre : alignés à gauche, colonne centrée */
+.kicker,
 .page-title.outside{
   width: min(920px, 92vw);
   margin-left: auto;
   margin-right: auto;
   text-align: left;
   padding-left: clamp(10px, 2.2vw, 22px);
-
-  margin-top: 0;
-  margin-bottom: 4px; /* Projets + ligne très proches */
 }
 
-.page-title {
+.kicker {
+  font-size: 1.1rem;
+  letter-spacing: 0.26em;
+  opacity: 0.55;
+  margin: 0 0 10px 0;
+  font-variant: small-caps;
+}
+
+/* cohérence : le h1 "outside" ne prend pas la règle .hero h1 */
+.page-title.outside {
+  margin: 0;
   font-size: 3.1rem;
   font-weight: 300;
   letter-spacing: -0.04em;
   opacity: 0.85;
 }
 
-/* Ligne explicative sous "Projets" (hors cadre) + micro-filet fantôme */
-.page-intro{
+/* Intro sous le titre : alignée à gauche */
+.page-intro {
   width: min(920px, 92vw);
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0; /* collée au titre */
+  text-align: left;
   padding-left: clamp(10px, 2.2vw, 22px);
+
+  margin-top: 6px;
+  margin-bottom: 28px;
 
   font-size: 1.15rem;
   line-height: 1.6;
   letter-spacing: 0.04em;
   opacity: 0.65;
-  text-align: left;
-
-  position: relative;
 }
 
-/* micro-filet horizontal fantôme */
-.page-intro::after{
-  content: "";
-  display: block;
-  width: min(220px, 42vw);
-  height: 1px;
-  margin-top: 12px;
-  opacity: 0.35;
-  background: linear-gradient(
-    to right,
-    rgba(255,255,255,0),
-    rgba(255,255,255,0.22),
-    rgba(255,255,255,0)
-  );
-}
-
-/* Wrapper projets : distance avant le premier cadre */
+/* Wrapper projets */
 .projects {
   width: min(920px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   gap: 36px;
-  margin-top: 28px; /* espace entre intro+filet et Wikipedia */
 }
 
-/* Cadre projet (réutilise panel) */
 .panel {
   width: 100%;
   border: 1px solid rgba(255,255,255,0.14);
@@ -316,7 +313,6 @@ h1 {
   box-sizing: border-box;
 }
 
-/* Titre dans le cadre */
 .project-title {
   font-size: 2rem;
   font-weight: 300;
@@ -327,6 +323,7 @@ h1 {
   text-align: center;
 }
 
+/* texte */
 .prose {
   font-size: 1.35rem;
   line-height: 1.7;
@@ -343,10 +340,46 @@ h1 {
 
 .prose a:hover { border-bottom-color: rgba(255,255,255,0.75); }
 
+/* CV page: styles de base pour les titres/listes (sans casser le reste) */
+.prose h2 {
+  font-size: 2.1rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px 0;
+  opacity: 0.88;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  margin: 26px 0 10px 0;
+  opacity: 0.82;
+  font-variant: small-caps;
+}
+
+.prose ul {
+  margin: 0 0 18px 18px;
+  padding: 0;
+}
+
+.prose li {
+  margin: 0 0 8px 0;
+}
+
+.prose hr {
+  border: none;
+  height: 1px;
+  margin: 22px 0;
+  background: rgba(255,255,255,0.14);
+}
+
 /* Footer hors cadre */
 .page-footer {
   margin-top: 26px;
   width: min(920px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
@@ -385,11 +418,112 @@ h1 {
 .subnav a:hover::after { width: 70%; }
 
 /* =======================
-   PORTRAITS (Ressources/Projets)
+   CV — lisibilité
+   (actif uniquement sur cv.html via .cv-page)
+   ======================= */
+
+.cv-page .panel {
+  background: rgba(0,0,0,0.55);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.cv-page .prose {
+  opacity: 0.92;
+  line-height: 1.8;
+  font-size: 1.28rem;
+}
+
+/* bloc contact en tête */
+.cv-page .prose h2 {
+  margin: 0 0 10px 0;
+  font-size: 2.3rem;
+  letter-spacing: -0.02em;
+  opacity: 0.95;
+}
+
+.cv-page .prose p:first-of-type {
+  opacity: 0.88;
+  margin-bottom: 22px;
+  line-height: 1.65;
+}
+
+/* titres sections */
+.cv-page .prose h3 {
+  margin: 30px 0 12px 0;
+  padding-top: 6px;
+  font-size: 1.35rem;
+  letter-spacing: 0.22em;
+  font-variant: small-caps;
+  opacity: 0.9;
+}
+
+/* filets plus doux + espacés */
+.cv-page .prose hr {
+  border: none;
+  height: 1px;
+  margin: 26px 0;
+  background: rgba(255,255,255,0.18);
+}
+
+/* listes plus respirantes */
+.cv-page .prose ul {
+  margin: 10px 0 20px 22px;
+  padding: 0;
+}
+
+.cv-page .prose li {
+  margin: 0 0 10px 0;
+  opacity: 0.9;
+}
+
+/* paragraphes plus aérés */
+.cv-page .prose p {
+  margin: 0 0 18px 0;
+}
+
+/* liens plus contrastés */
+.cv-page .prose a {
+  color: rgba(255,255,255,0.92);
+  border-bottom-color: rgba(255,255,255,0.35);
+}
+
+.cv-page .prose a:hover {
+  border-bottom-color: rgba(255,255,255,0.8);
+}
+
+/* petits + typographiques */
+.cv-page .prose strong {
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+}
+
+/* mobile : taille un peu plus petite, mais espacée */
+@media (hover: none) and (pointer: coarse) {
+  .cv-page .prose {
+    font-size: 1.12rem;
+    line-height: 1.75;
+  }
+
+  .cv-page .prose h2 {
+    font-size: 2rem;
+  }
+
+  .cv-page .prose h3 {
+    letter-spacing: 0.18em;
+  }
+
+  .cv-page .prose ul {
+    margin-left: 18px;
+  }
+}
+
+
+/* =======================
+   PORTRAITS
    ======================= */
 
 .portraits-row {
-  margin: 2px 0; /* resserré entre rangées */
+  margin: 6px 0;
   display: flex;
   justify-content: center;
   gap: 18px;
@@ -404,7 +538,6 @@ h1 {
   transition: transform 0.55s ease, opacity 0.55s ease;
 }
 
-/* Réserve pour 2 lignes (labels restent dans le cadre) */
 .portrait-link {
   position: relative;
   text-decoration: none;
@@ -412,7 +545,7 @@ h1 {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 44px; /* resserré */
+  padding-bottom: 54px;
 }
 
 .portrait-label,
@@ -428,21 +561,20 @@ h1 {
 }
 
 .portrait-label {
-  bottom: 22px;
+  bottom: 26px;
   font-size: 0.95rem;
   letter-spacing: 0.18em;
   font-variant: small-caps;
 }
 
 .portrait-role {
-  bottom: 4px;
+  bottom: 6px;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   font-style: italic;
   text-transform: lowercase;
 }
 
-/* Hover uniquement sur desktop */
 @media (hover: hover) and (pointer: fine) {
   .portrait-svg:hover {
     transform: scale(1.035);
@@ -478,11 +610,11 @@ h1 {
   .media img { width: 92vw; }
   .intro { font-size: 1rem; }
 
-  h1 { font-size: 2.4rem; }
+  .hero h1 { font-size: 2.4rem; }
 
   .page { padding: 86px 18px 24px; }
 
-  .projects { width: 100%; margin-top: 22px; }
+  .projects { width: 100%; }
 
   .panel {
     border: none;
@@ -490,7 +622,7 @@ h1 {
     padding: 0;
   }
 
-  .page-title { font-size: 2.6rem; }
+  .page-title.outside { font-size: 2.6rem; }
   .prose { font-size: 1.2rem; }
 
   .portraits-row { gap: 14px; flex-wrap: wrap; }
@@ -515,17 +647,14 @@ h1 {
 
   .page-footer { width: 100%; }
 
+  .kicker,
   .page-title.outside,
-  .page-intro{
+  .page-intro {
     padding-left: 0;
   }
 
-  .page-intro{
+  .page-intro {
+    margin-bottom: 22px;
     font-size: 1.05rem;
-  }
-
-  .page-intro::after{
-    width: min(240px, 70vw);
-    margin-top: 10px;
   }
 }
